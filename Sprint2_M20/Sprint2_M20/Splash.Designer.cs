@@ -33,25 +33,22 @@ namespace Sprint2_M20
             this.pgbSplash = new System.Windows.Forms.ProgressBar();
             this.lblProgressBar = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // pgbSplash
             // 
-            this.pgbSplash.Location = new System.Drawing.Point(225, 303);
-            this.pgbSplash.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pgbSplash.Location = new System.Drawing.Point(150, 194);
             this.pgbSplash.Maximum = 101;
             this.pgbSplash.Name = "pgbSplash";
-            this.pgbSplash.Size = new System.Drawing.Size(723, 58);
+            this.pgbSplash.Size = new System.Drawing.Size(482, 37);
             this.pgbSplash.TabIndex = 0;
             // 
             // lblProgressBar
             // 
             this.lblProgressBar.AutoSize = true;
-            this.lblProgressBar.Location = new System.Drawing.Point(549, 391);
-            this.lblProgressBar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblProgressBar.Location = new System.Drawing.Point(366, 250);
             this.lblProgressBar.Name = "lblProgressBar";
-            this.lblProgressBar.Size = new System.Drawing.Size(43, 25);
+            this.lblProgressBar.Size = new System.Drawing.Size(28, 17);
             this.lblProgressBar.TabIndex = 1;
             this.lblProgressBar.Text = "0%";
             // 
@@ -61,24 +58,13 @@ namespace Sprint2_M20
             this.timer1.Interval = 200;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(721, 116);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 25);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
-            // 
             // ProgressBarSplash
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 703);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lblProgressBar);
             this.Controls.Add(this.pgbSplash);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ProgressBarSplash";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Splash_Load);
@@ -93,7 +79,6 @@ namespace Sprint2_M20
         private System.Windows.Forms.ProgressBar pgbSplash;
         private System.Windows.Forms.Label lblProgressBar;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label label1;
     }
 }
 
