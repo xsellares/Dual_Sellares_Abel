@@ -33,7 +33,6 @@ namespace Sprint2_M20
             this.pgbSplash = new System.Windows.Forms.ProgressBar();
             this.lblProgressBar = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.labelGIthub = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // pgbSplash
@@ -59,21 +58,11 @@ namespace Sprint2_M20
             this.timer1.Interval = 200;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // labelGIthub
-            // 
-            this.labelGIthub.AutoSize = true;
-            this.labelGIthub.Location = new System.Drawing.Point(260, 85);
-            this.labelGIthub.Name = "labelGIthub";
-            this.labelGIthub.Size = new System.Drawing.Size(46, 17);
-            this.labelGIthub.TabIndex = 2;
-            this.labelGIthub.Text = "label1";
-            // 
             // ProgressBarSplash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.labelGIthub);
             this.Controls.Add(this.lblProgressBar);
             this.Controls.Add(this.pgbSplash);
             this.Name = "ProgressBarSplash";
@@ -90,7 +79,6 @@ namespace Sprint2_M20
         private System.Windows.Forms.ProgressBar pgbSplash;
         private System.Windows.Forms.Label lblProgressBar;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label labelGIthub;
     }
 }
 
