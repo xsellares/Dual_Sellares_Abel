@@ -30,6 +30,7 @@ namespace Sprint2_M20
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProgressBarSplash));
             this.pgbSplash = new System.Windows.Forms.ProgressBar();
             this.lblProgressBar = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -37,18 +38,20 @@ namespace Sprint2_M20
             // 
             // pgbSplash
             // 
-            this.pgbSplash.Location = new System.Drawing.Point(150, 194);
+            this.pgbSplash.Location = new System.Drawing.Point(-1, 146);
+            this.pgbSplash.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pgbSplash.Maximum = 101;
             this.pgbSplash.Name = "pgbSplash";
-            this.pgbSplash.Size = new System.Drawing.Size(482, 37);
+            this.pgbSplash.Size = new System.Drawing.Size(901, 45);
             this.pgbSplash.TabIndex = 0;
             // 
             // lblProgressBar
             // 
             this.lblProgressBar.AutoSize = true;
-            this.lblProgressBar.Location = new System.Drawing.Point(366, 250);
+            this.lblProgressBar.Location = new System.Drawing.Point(436, 156);
+            this.lblProgressBar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblProgressBar.Name = "lblProgressBar";
-            this.lblProgressBar.Size = new System.Drawing.Size(28, 17);
+            this.lblProgressBar.Size = new System.Drawing.Size(43, 25);
             this.lblProgressBar.TabIndex = 1;
             this.lblProgressBar.Text = "0%";
             // 
@@ -60,12 +63,17 @@ namespace Sprint2_M20
             // 
             // ProgressBarSplash
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(898, 497);
             this.Controls.Add(this.lblProgressBar);
             this.Controls.Add(this.pgbSplash);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ProgressBarSplash";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Splash_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Splash_KeyDown);

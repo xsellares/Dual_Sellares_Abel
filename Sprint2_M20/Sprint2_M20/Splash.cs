@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace Sprint2_M20
@@ -38,6 +39,8 @@ namespace Sprint2_M20
         private void timer1_Tick(object sender, EventArgs e)
         {
             {
+                pgbSplash.ForeColor = Color.Black;
+                pgbSplash.BackColor = Color.Black;
                 pgbSplash.Increment(10);
                 lblProgressBar.Text = pgbSplash.Value.ToString() + "%";
 
