@@ -1,0 +1,14 @@
+C:\Users\Abel\source\repos\Sprint2_M20\Sprint2_M20\bin\Debug\Sprint2_M20.exe.config
+C:\Users\Abel\source\repos\Sprint2_M20\Sprint2_M20\bin\Debug\Sprint2_M20.exe
+C:\Users\Abel\source\repos\Sprint2_M20\Sprint2_M20\bin\Debug\Sprint2_M20.pdb
+C:\Users\Abel\source\repos\Sprint2_M20\Sprint2_M20\obj\Debug\Sprint2_M20.Properties.Resources.resources
+C:\Users\Abel\source\repos\Sprint2_M20\Sprint2_M20\obj\Debug\Sprint2_M20.validacio.resources
+C:\Users\Abel\source\repos\Sprint2_M20\Sprint2_M20\obj\Debug\Sprint2_M20.csproj.GenerateResource.cache
+C:\Users\Abel\source\repos\Sprint2_M20\Sprint2_M20\obj\Debug\Sprint2_M20.csproj.CoreCompileInputs.cache
+C:\Users\Abel\source\repos\Sprint2_M20\Sprint2_M20\obj\Debug\Sprint2_M20.exe
+C:\Users\Abel\source\repos\Sprint2_M20\Sprint2_M20\obj\Debug\Sprint2_M20.pdb
+C:\Users\Abel\source\repos\Sprint2_M20\Sprint2_M20\obj\Debug\Sprint2_M20.LoginNormal.resources
+C:\Users\Abel\source\repos\Sprint2_M20\Sprint2_M20\obj\Debug\Sprint2_M20.ProgressBarSplash.resources
+C:\Users\Abel\Desktop\APPM20\Sprint2_M20.exe.config
+C:\Users\Abel\Desktop\APPM20\Sprint2_M20.exe
+C:\Users\Abel\Desktop\APPM20\Sprint2_M20.pdb
