@@ -13,18 +13,17 @@ namespace Sprint2_M20
 {
     public partial class ProgressBarSplash : Form
     {
-        public object FormLogin { get; private set; }
-
+        //Inicializamos la progressBar
         public ProgressBarSplash()
         {
             InitializeComponent();
         }
-
         private void Splash_Load(object sender, EventArgs e)
         {
 
         }
 
+        //Hacemos un trigger para que al pulsar Alt+F2 nos lleve al login de admins
         private void Splash_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Alt && e.KeyCode == Keys.F2)
@@ -36,14 +35,14 @@ namespace Sprint2_M20
             } 
         }
 
+        //Esto hara que la progressBar funciones
         private void timer1_Tick(object sender, EventArgs e)
         {
             {
-                pgbSplash.ForeColor = Color.Black;
-                pgbSplash.BackColor = Color.Black;
                 pgbSplash.Increment(10);
                 lblProgressBar.Text = pgbSplash.Value.ToString() + "%";
 
+                //Si pasa el tiempo y no hemos pulsado Alt+F2 nos manda al login normal
                 if (pgbSplash.Value == pgbSplash.Maximum)
                 {
                     timer1.Stop();

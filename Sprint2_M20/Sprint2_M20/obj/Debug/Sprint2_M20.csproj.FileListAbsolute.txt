@@ -23,3 +23,4 @@ C:\Users\kurau\Documents\GitHub\Dual_Sellares_Abel\Sprint2_M20\Sprint2_M20\obj\D
 C:\Users\kurau\Documents\Desktop\APPM20\Sprint2_M20.exe.config
 C:\Users\kurau\Documents\Desktop\APPM20\Sprint2_M20.exe
 C:\Users\kurau\Documents\Desktop\APPM20\Sprint2_M20.pdb
+C:\Users\kurau\Documents\GitHub\Dual_Sellares_Abel\Sprint2_M20\Sprint2_M20\obj\Debug\Sprint2_M20.csproj.AssemblyReference.cache
