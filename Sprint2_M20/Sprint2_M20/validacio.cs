@@ -46,11 +46,6 @@ namespace Sprint2_M20
             }
         }
 
-        private void textBox1_Validating(object sender, CancelEventArgs e)
-        {
-            
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             textBox1.Text = "";
@@ -60,9 +55,9 @@ namespace Sprint2_M20
         {
             if (textBox1.Text == "1234")
             {
-                PantallaInicio frmInicio = new PantallaInicio();
+                FormAdmin frmAdmin = new FormAdmin();
                 this.Hide();
-                frmInicio.ShowDialog();
+                frmAdmin.ShowDialog();
             }
         }
     }
