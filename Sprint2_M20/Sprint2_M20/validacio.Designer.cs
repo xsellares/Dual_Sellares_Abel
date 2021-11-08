@@ -32,7 +32,8 @@ namespace Sprint2_M20
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPassAdmin = new System.Windows.Forms.TextBox();
+            this.lblCoordenada = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +45,7 @@ namespace Sprint2_M20
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 113F));
             this.tableLayoutPanel1.Controls.Add(this.button2, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.button1, 0, 3);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(207, 48);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(152, 167);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 73F));
@@ -74,20 +75,31 @@ namespace Sprint2_M20
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // txtPassAdmin
             // 
-            this.textBox1.Location = new System.Drawing.Point(290, 386);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(171, 22);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.UseSystemPasswordChar = true;
+            this.txtPassAdmin.Location = new System.Drawing.Point(235, 505);
+            this.txtPassAdmin.MaxLength = 4;
+            this.txtPassAdmin.Name = "txtPassAdmin";
+            this.txtPassAdmin.Size = new System.Drawing.Size(171, 22);
+            this.txtPassAdmin.TabIndex = 1;
+            this.txtPassAdmin.UseSystemPasswordChar = true;
+            // 
+            // lblCoordenada
+            // 
+            this.lblCoordenada.AutoSize = true;
+            this.lblCoordenada.Location = new System.Drawing.Point(291, 82);
+            this.lblCoordenada.Name = "lblCoordenada";
+            this.lblCoordenada.Size = new System.Drawing.Size(46, 17);
+            this.lblCoordenada.TabIndex = 2;
+            this.lblCoordenada.Text = "label1";
             // 
             // validacio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(630, 584);
+            this.Controls.Add(this.lblCoordenada);
+            this.Controls.Add(this.txtPassAdmin);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "validacio";
             this.Text = "Validacio";
@@ -103,6 +115,7 @@ namespace Sprint2_M20
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPassAdmin;
+        private System.Windows.Forms.Label lblCoordenada;
     }
 }

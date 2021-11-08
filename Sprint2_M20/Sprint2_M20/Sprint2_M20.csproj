@@ -67,6 +67,12 @@
     <Compile Include="FormAdmin.Designer.cs">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCoordenades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCoordenades.Designer.cs">
+      <DependentUpon>FormCoordenades.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginNormal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,12 @@
     <Compile Include="validacio.Designer.cs">
       <DependentUpon>validacio.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormAdmin.resx">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCoordenades.resx">
+      <DependentUpon>FormCoordenades.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginNormal.resx">
       <DependentUpon>LoginNormal.cs</DependentUpon>
     </EmbeddedResource>
