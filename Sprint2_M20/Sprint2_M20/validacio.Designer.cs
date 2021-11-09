@@ -34,6 +34,7 @@ namespace Sprint2_M20
             this.button1 = new System.Windows.Forms.Button();
             this.txtPassAdmin = new System.Windows.Forms.TextBox();
             this.lblCoordenada = new System.Windows.Forms.Label();
+            this.lblAdministration = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,27 +78,39 @@ namespace Sprint2_M20
             // 
             // txtPassAdmin
             // 
-            this.txtPassAdmin.Location = new System.Drawing.Point(235, 505);
+            this.txtPassAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassAdmin.Location = new System.Drawing.Point(234, 498);
             this.txtPassAdmin.MaxLength = 4;
             this.txtPassAdmin.Name = "txtPassAdmin";
-            this.txtPassAdmin.Size = new System.Drawing.Size(171, 22);
+            this.txtPassAdmin.Size = new System.Drawing.Size(171, 34);
             this.txtPassAdmin.TabIndex = 1;
             this.txtPassAdmin.UseSystemPasswordChar = true;
             // 
             // lblCoordenada
             // 
             this.lblCoordenada.AutoSize = true;
-            this.lblCoordenada.Location = new System.Drawing.Point(291, 82);
+            this.lblCoordenada.Location = new System.Drawing.Point(294, 106);
             this.lblCoordenada.Name = "lblCoordenada";
             this.lblCoordenada.Size = new System.Drawing.Size(46, 17);
             this.lblCoordenada.TabIndex = 2;
             this.lblCoordenada.Text = "label1";
+            // 
+            // lblAdministration
+            // 
+            this.lblAdministration.AutoSize = true;
+            this.lblAdministration.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdministration.Location = new System.Drawing.Point(130, 27);
+            this.lblAdministration.Name = "lblAdministration";
+            this.lblAdministration.Size = new System.Drawing.Size(391, 44);
+            this.lblAdministration.TabIndex = 3;
+            this.lblAdministration.Text = "MESSI Administration";
             // 
             // validacio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(630, 584);
+            this.Controls.Add(this.lblAdministration);
             this.Controls.Add(this.lblCoordenada);
             this.Controls.Add(this.txtPassAdmin);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -117,5 +130,6 @@ namespace Sprint2_M20
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtPassAdmin;
         private System.Windows.Forms.Label lblCoordenada;
+        private System.Windows.Forms.Label lblAdministration;
     }
 }

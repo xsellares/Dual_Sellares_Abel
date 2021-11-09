@@ -19,7 +19,16 @@ namespace Sprint2_M20
 
         private void btnRegenerar_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            FormCoordenades frmCoordenades = new FormCoordenades();
+            frmCoordenades.Show();
+        }
 
+        private void btnGestioDispo_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            TrustedDevices frmTrustedDevices = new TrustedDevices();
+            frmTrustedDevices.Show();
         }
     }
 }

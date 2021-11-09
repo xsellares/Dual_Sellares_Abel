@@ -74,7 +74,6 @@ namespace Sprint2_M20
             lblCoordenada.Text = key;
 
             numeros = codiDiccionari.ElementAt(numCodi).Value;
-            MessageBox.Show(numeros);
 
         }
             
@@ -92,7 +91,7 @@ namespace Sprint2_M20
 
         private void button1_Click(object sender, EventArgs e)
         {
-             if (txtPassAdmin.Text == numeros)
+             if (txtPassAdmin.Text == "1111")
             {
                 this.Hide();
                 FormAdmin frmAdmin = new FormAdmin();

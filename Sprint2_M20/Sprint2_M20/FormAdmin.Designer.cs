@@ -52,6 +52,7 @@ namespace Sprint2_M20
             this.btnGestioDispo.TabIndex = 1;
             this.btnGestioDispo.Text = "Gestió de dispositius";
             this.btnGestioDispo.UseVisualStyleBackColor = true;
+            this.btnGestioDispo.Click += new System.EventHandler(this.btnGestioDispo_Click);
             // 
             // btnGestioUsu
             // 
