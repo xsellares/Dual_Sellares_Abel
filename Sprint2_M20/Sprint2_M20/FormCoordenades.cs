@@ -20,6 +20,7 @@ namespace Sprint2_M20
 
         string codi;
         int num;
+        bool lleno = false;
 
         //Crear el diccionario con la llave y el valor asignado
         Dictionary<string, string> codiDiccionari = new Dictionary<string, string>();
@@ -49,6 +50,14 @@ namespace Sprint2_M20
 
         private void btnShow_Click(object sender, EventArgs e)
         {
+            if (lleno == true)
+            {
+                for (int i = 0; i < 20; i++)
+                {
+                    tableLayoutPanel1.Controls.Remove(tableLayoutPanel1.GetControlFromPosition(1,1));
+                }
+            }
+            
                 for (int i = 0; i < 20; i++)
                 {
                     Label lbl = new Label();
@@ -56,6 +65,7 @@ namespace Sprint2_M20
                     string values = codiDiccionari.ElementAt(i).Value;
                     lbl.Text = values;
                 }
+            lleno = true;
         }
     }
 }

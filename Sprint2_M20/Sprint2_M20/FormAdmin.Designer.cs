@@ -62,6 +62,7 @@ namespace Sprint2_M20
             this.btnGestioUsu.TabIndex = 2;
             this.btnGestioUsu.Text = "Gestió d\'usuaris";
             this.btnGestioUsu.UseVisualStyleBackColor = true;
+            this.btnGestioUsu.Click += new System.EventHandler(this.btnGestioUsu_Click);
             // 
             // FormAdmin
             // 

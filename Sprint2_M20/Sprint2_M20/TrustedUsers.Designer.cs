@@ -30,12 +30,12 @@ namespace Sprint2_M20
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnMac = new System.Windows.Forms.Label();
-            this.btnHostname = new System.Windows.Forms.Label();
-            this.btnUser = new System.Windows.Forms.Label();
+            this.txtHostname = new System.Windows.Forms.TextBox();
+            this.txtMAC = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnUser = new System.Windows.Forms.Label();
+            this.btnHostname = new System.Windows.Forms.Label();
+            this.btnMac = new System.Windows.Forms.Label();
             this.bntCheck = new System.Windows.Forms.Button();
             this.bntRegister = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -44,8 +44,8 @@ namespace Sprint2_M20
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtHostname);
+            this.panel1.Controls.Add(this.txtMAC);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.btnUser);
             this.panel1.Controls.Add(this.btnHostname);
@@ -55,23 +55,32 @@ namespace Sprint2_M20
             this.panel1.Size = new System.Drawing.Size(602, 180);
             this.panel1.TabIndex = 0;
             // 
-            // btnMac
+            // txtHostname
             // 
-            this.btnMac.AutoSize = true;
-            this.btnMac.Location = new System.Drawing.Point(42, 51);
-            this.btnMac.Name = "btnMac";
-            this.btnMac.Size = new System.Drawing.Size(45, 17);
-            this.btnMac.TabIndex = 0;
-            this.btnMac.Text = "M.A.C";
+            this.txtHostname.Enabled = false;
+            this.txtHostname.Location = new System.Drawing.Point(115, 104);
+            this.txtHostname.Name = "txtHostname";
+            this.txtHostname.Size = new System.Drawing.Size(166, 22);
+            this.txtHostname.TabIndex = 5;
             // 
-            // btnHostname
+            // txtMAC
             // 
-            this.btnHostname.AutoSize = true;
-            this.btnHostname.Location = new System.Drawing.Point(42, 104);
-            this.btnHostname.Name = "btnHostname";
-            this.btnHostname.Size = new System.Drawing.Size(72, 17);
-            this.btnHostname.TabIndex = 1;
-            this.btnHostname.Text = "Hostname";
+            this.txtMAC.Enabled = false;
+            this.txtMAC.Location = new System.Drawing.Point(115, 50);
+            this.txtMAC.Name = "txtMAC";
+            this.txtMAC.Size = new System.Drawing.Size(166, 22);
+            this.txtMAC.TabIndex = 4;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Abel",
+            "Xavi"});
+            this.comboBox1.Location = new System.Drawing.Point(415, 48);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(146, 24);
+            this.comboBox1.TabIndex = 3;
             // 
             // btnUser
             // 
@@ -82,27 +91,23 @@ namespace Sprint2_M20
             this.btnUser.TabIndex = 2;
             this.btnUser.Text = "User:";
             // 
-            // comboBox1
+            // btnHostname
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(415, 48);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(146, 24);
-            this.comboBox1.TabIndex = 3;
+            this.btnHostname.AutoSize = true;
+            this.btnHostname.Location = new System.Drawing.Point(42, 104);
+            this.btnHostname.Name = "btnHostname";
+            this.btnHostname.Size = new System.Drawing.Size(72, 17);
+            this.btnHostname.TabIndex = 1;
+            this.btnHostname.Text = "Hostname";
             // 
-            // textBox1
+            // btnMac
             // 
-            this.textBox1.Location = new System.Drawing.Point(115, 50);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(166, 22);
-            this.textBox1.TabIndex = 4;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(115, 104);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(166, 22);
-            this.textBox2.TabIndex = 5;
+            this.btnMac.AutoSize = true;
+            this.btnMac.Location = new System.Drawing.Point(42, 51);
+            this.btnMac.Name = "btnMac";
+            this.btnMac.Size = new System.Drawing.Size(45, 17);
+            this.btnMac.TabIndex = 0;
+            this.btnMac.Text = "M.A.C";
             // 
             // bntCheck
             // 
@@ -121,6 +126,7 @@ namespace Sprint2_M20
             this.bntRegister.TabIndex = 2;
             this.bntRegister.Text = "Register";
             this.bntRegister.UseVisualStyleBackColor = true;
+            this.bntRegister.Click += new System.EventHandler(this.bntRegister_Click);
             // 
             // btnDelete
             // 
@@ -142,6 +148,7 @@ namespace Sprint2_M20
             this.Controls.Add(this.panel1);
             this.Name = "TrustedUsers";
             this.Text = "TrustedUsers";
+            this.Load += new System.EventHandler(this.TrustedUsers_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -151,8 +158,8 @@ namespace Sprint2_M20
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtHostname;
+        private System.Windows.Forms.TextBox txtMAC;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label btnUser;
         private System.Windows.Forms.Label btnHostname;
