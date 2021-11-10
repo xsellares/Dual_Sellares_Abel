@@ -52,36 +52,62 @@ namespace Sprint2_M20
             txtHostname.Text = hostName;
         }
 
-        
-
-        private void bntRegister_Click(object sender, EventArgs e)
+        static void ReadSetting(string key)
         {
-            string usuarioNuevo = comboBox1.Text;
-
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
-
-            foreach (XmlElement element in xmlDoc.DocumentElement)
+            try
             {
-                if (element.Name.Equals("appSettings"))
-                {
-                    foreach (XmlNode node in element.ChildNodes)
-                    {
-                        if (node.Attributes[0].Value == "TrustedUser")
-                        {
-                            node.Attributes[1].Value = usuarioNuevo;
-                        }
-                        
-                    }
-                }
+                var appSettings = ConfigurationManager.AppSettings;
+                string result = appSettings[key] ?? "Not Found";
+                Console.WriteLine(result);
             }
+            catch (ConfigurationErrorsException)
+            {
+                Console.WriteLine("Error reading app settings");
+            }
+        }
 
-            xmlDoc.Save(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
-            ConfigurationManager.RefreshSection("appSettings");
+        static void AddUpdateAppSettings(string key, string value)
+        {
+            try
+            {
+                var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                var settings = configFile.AppSettings.Settings;
+                if (settings[key] == null)
+                {
+                    settings.Add(key, value);
+                }
+                else
+                {
+                    settings[key].Value = value;
+                }
+                configFile.Save(ConfigurationSaveMode.Modified);
+                ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
+            }
+            catch (ConfigurationErrorsException)
+            {
+                Console.WriteLine("Error writing app settings");
+            }
         }
 
 
 
-        
+        private void bntRegister_Click(object sender, EventArgs e)
+        {
+            string key = "TrustedUser";
+            string value = comboBox1.Text.Trim();
+
+            var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                var settings = configFile.AppSettings.Settings;
+            if (settings[key] == null)
+            {
+                settings.Add(key, value);
+            }
+            else
+            {
+                settings[key].Value = value;
+            }
+            configFile.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
+            }
+        }
     }
-}
