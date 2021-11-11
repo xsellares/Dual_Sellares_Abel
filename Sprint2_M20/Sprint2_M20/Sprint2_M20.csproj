@@ -49,6 +49,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -61,11 +62,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DarkCoreDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DarkCoreDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FormAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormAdmin.Designer.cs">
       <DependentUpon>FormAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCoordenades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCoordenades.Designer.cs">
+      <DependentUpon>FormCoordenades.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginNormal.cs">
       <SubType>Form</SubType>
@@ -87,12 +99,30 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TrustedDevices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrustedDevices.Designer.cs">
+      <DependentUpon>TrustedDevices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TrustedUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrustedUsers.Designer.cs">
+      <DependentUpon>TrustedUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="validacio.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="validacio.Designer.cs">
       <DependentUpon>validacio.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormAdmin.resx">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCoordenades.resx">
+      <DependentUpon>FormCoordenades.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginNormal.resx">
       <DependentUpon>LoginNormal.cs</DependentUpon>
     </EmbeddedResource>
@@ -108,9 +138,26 @@
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TrustedDevices.resx">
+      <DependentUpon>TrustedDevices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrustedUsers.resx">
+      <DependentUpon>TrustedUsers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="validacio.resx">
       <DependentUpon>validacio.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DarkCoreDataSet.xsc">
+      <DependentUpon>DarkCoreDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DarkCoreDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DarkCoreDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DarkCoreDataSet.xss">
+      <DependentUpon>DarkCoreDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -135,6 +182,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibreriaM20\LibreriaM20.csproj">
+      <Project>{ba0a5a13-3545-41b0-9cc3-3b88a279d958}</Project>
+      <Name>LibreriaM20</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
