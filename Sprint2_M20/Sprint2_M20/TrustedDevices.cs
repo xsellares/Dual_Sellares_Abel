@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Net;
@@ -18,6 +19,10 @@ namespace Sprint2_M20
         {
             InitializeComponent();
         }
+
+        LibreriaM20.LibreriaMESSI bd = new LibreriaM20.LibreriaMESSI();
+        string tabla = "TrustedDevices";
+        DataSet dts;
 
         private void txtMAC_TextChanged(object sender, EventArgs e)
         {
@@ -49,10 +54,28 @@ namespace Sprint2_M20
                         }
                     }
                 }
+
             }
 
+            //Hostname
             String hostName = Dns.GetHostName();
             txtHostname.Text = hostName;
+
+            //Conexion a base de datos
+
+            dts = bd.TraerDatos(tabla, "select * from TrustedDevices where HostName = '" + hostName + "'");
+
+
+            if (true)
+            {
+
+            }
+
+        }
+
+        private void TextBox_validaing(object sender, EventArgs e)
+        {
+            ((TextBox)sender).DataBindings[0].BindingManagerBase.EndCurrentEdit();
         }
     }
 }

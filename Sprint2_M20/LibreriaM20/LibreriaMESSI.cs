@@ -14,37 +14,41 @@ namespace LibreriaM20
     {
         private SqlConnection conn;
         private string query;
-        DataSet dts;
+        private DataSet dts;
 
         public void ConfigurarConexion()
         {
-            ConnectionStringSettings conf = new ConnectionStringSettings();
-            string conexionString = conf.ConnectionString;
+            String conexionString;
+            ConnectionStringSettings conf = ConfigurationManager.ConnectionStrings["BaseDatosM20"];
+            conexionString = conf.ConnectionString;
             conn = new SqlConnection(conexionString);
+
         }
-        public DataSet TraerDatos(string taula)
+        public DataSet TraerDatos(string tabla, string query)
         {
             ConfigurarConexion();
             SqlDataAdapter adapter;
             dts = new DataSet();
 
-            query = "select * from Agencies";
+            
             adapter = new SqlDataAdapter(query, conn);
             conn.Open();
 
-            adapter.Fill(dts, "Agencies");
+            adapter.Fill(dts, tabla);
 
             conn.Close();
 
             return dts;
+
         }
 
-        public int Actualizar()
+        public int Actualizar(DataSet dtschanged, string tabla)
         {
             int result = 0;
             conn.Open();
 
             SqlDataAdapter adapter;
+            query = "select * from " + tabla;
             adapter = new SqlDataAdapter(query, conn);
             SqlCommandBuilder cmdBuilder;
             cmdBuilder = new SqlCommandBuilder(adapter);
@@ -60,9 +64,14 @@ namespace LibreriaM20
 
         }
 
-        private void HacerBindings()
+        public void HacerBindings(string texto, DataSet dts, string campo)
         {
-
+            //DataBindings.Clear();
+            //txtCodigo.DataBindings.Add("text", dts.Tables["Agencies"], "CodeAgency");
+            //txtCodigo.Validated += new System.EventHandler(this.ValidarTextBox);
+            //txtDesc.DataBindings.Clear();
+            //txtDesc.DataBindings.Add("text", dts.Tables["Agencies"], "DescAgency");
+            //txtDesc.Validated += new System.EventHandler(this.ValidarTextBox);
         }
     }
 
