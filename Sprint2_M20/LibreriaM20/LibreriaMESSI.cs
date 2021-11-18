@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
-
+using System.Windows.Forms;
 
 namespace LibreriaM20
 {
@@ -14,34 +14,37 @@ namespace LibreriaM20
     {
         private SqlConnection conn;
         private string query;
-        DataSet dts;
+        private DataSet dts;
 
         public void ConfigurarConexion()
         {
-            ConnectionStringSettings conf = new ConnectionStringSettings();
-            string conexionString = conf.ConnectionString;
+            String conexionString;
+            ConnectionStringSettings conf = ConfigurationManager.ConnectionStrings["BaseDatosM20"];
+            conexionString = conf.ConnectionString;
             conn = new SqlConnection(conexionString);
+
         }
-        public DataSet TraerDatos(string taula)
+        public DataSet TraerDatos(string tabla, string query)
         {
             ConfigurarConexion();
             SqlDataAdapter adapter;
             dts = new DataSet();
 
-            query = "select * from Agencies";
+            
             adapter = new SqlDataAdapter(query, conn);
             conn.Open();
 
-            adapter.Fill(dts, "Agencies");
+            adapter.Fill(dts, tabla);
 
             conn.Close();
 
             return dts;
+
         }
 
-        public int Actualizar()
+        public DataSet Actualizar(string query)
         {
-            int result = 0;
+
             conn.Open();
 
             SqlDataAdapter adapter;
@@ -49,20 +52,23 @@ namespace LibreriaM20
             SqlCommandBuilder cmdBuilder;
             cmdBuilder = new SqlCommandBuilder(adapter);
 
-            if (dts.HasChanges())
-            {
-                result = adapter.Update(dts.Tables[0]);
-            }
+            
+            int result = adapter.Update(dts.Tables[0]);
 
             conn.Close();
 
-            return result;
+            return dts;
 
         }
 
-        private void HacerBindings()
+        public void HacerBindings()
         {
-
+            //DataBindings.Clear();
+            //txtCodigo.DataBindings.Add("text", dts.Tables["Agencies"], "CodeAgency");
+            //txtCodigo.Validated += new System.EventHandler(this.ValidarTextBox);
+            //txtDesc.DataBindings.Clear();
+            //txtDesc.DataBindings.Add("text", dts.Tables["Agencies"], "DescAgency");
+            //txtDesc.Validated += new System.EventHandler(this.ValidarTextBox);
         }
     }
 
