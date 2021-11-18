@@ -31,6 +31,7 @@ namespace Sprint2_M20
 
         private void TrustedDevices_Load(object sender, EventArgs e)
         {
+
             IPGlobalProperties computerProperties = IPGlobalProperties.GetIPGlobalProperties();
             NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
 
@@ -63,19 +64,53 @@ namespace Sprint2_M20
 
             //Conexion a base de datos
 
-            dts = bd.TraerDatos(tabla, "select * from TrustedDevices where HostName = '" + hostName + "'");
+            dts = bd.TraerDatos(tabla, "select hostname, MAC from TrustedDevices where HostName = '" + hostName + "' and MAC = '" + txtMAC.Text + "'");
+            DataTable dtDevices = dts.Tables[0];
 
-
-            if (true)
+            if (dtDevices.Rows.Count == 0)
             {
-
+                MessageBox.Show("Tu dipositivo no está registrado");
+                btnSave.Enabled = true;
+                
+            } else
+            {
+                MessageBox.Show("Tu dispositivo ya está registrado");
+                btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+                btnDelete.Enabled = true;
             }
 
         }
 
-        private void TextBox_validaing(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
-            ((TextBox)sender).DataBindings[0].BindingManagerBase.EndCurrentEdit();
+            DataRow drDevices = dts.Tables[0].NewRow();
+
+            drDevices[0] = txtHostname.Text;
+            drDevices[1] = txtMAC.Text;
+
+            dts.Tables["TrustedDevices"].Rows.Add(drDevices);
+
+            dts = bd.Actualizar("select * from TrustedDevices");
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            dts = bd.TraerDatos(tabla, "select hostname, MAC from TrustedDevices where HostName = '" + txtHostname.Text + "' and MAC = '" + txtMAC.Text + "'");
+            DataTable dtDevices = dts.Tables["TrustedDevices"];
+
+            for (int i = dtDevices.Rows.Count -1; i >= 0; i--)
+            {
+                DataRow drDevices = dtDevices.Rows[i];
+                if (drDevices["MAC"].ToString() == txtMAC.Text && drDevices["HostName"].ToString() == txtHostname.Text) 
+    {
+                    dtDevices.Rows.Remove(drDevices);
+                }
+            }
+
+            dtDevices.AcceptChanges();
+
+            dts = bd.Actualizar("select * from TrustedDevices");
+
         }
     }
 }

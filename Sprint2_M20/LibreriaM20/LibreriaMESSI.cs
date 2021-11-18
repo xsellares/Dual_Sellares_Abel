@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
-
+using System.Windows.Forms;
 
 namespace LibreriaM20
 {
@@ -42,29 +42,26 @@ namespace LibreriaM20
 
         }
 
-        public int Actualizar(DataSet dtschanged, string tabla)
+        public DataSet Actualizar(string query)
         {
-            int result = 0;
+
             conn.Open();
 
             SqlDataAdapter adapter;
-            query = "select * from " + tabla;
             adapter = new SqlDataAdapter(query, conn);
             SqlCommandBuilder cmdBuilder;
             cmdBuilder = new SqlCommandBuilder(adapter);
 
-            if (dts.HasChanges())
-            {
-                result = adapter.Update(dts.Tables[0]);
-            }
+            
+            int result = adapter.Update(dts.Tables[0]);
 
             conn.Close();
 
-            return result;
+            return dts;
 
         }
 
-        public void HacerBindings(string texto, DataSet dts, string campo)
+        public void HacerBindings()
         {
             //DataBindings.Clear();
             //txtCodigo.DataBindings.Add("text", dts.Tables["Agencies"], "CodeAgency");
