@@ -27,3 +27,5 @@ C:\Users\Abel\Documents\GitHub\Dual_Sellares_Abel\Sprint2_M20\Sprint2_M20\obj\De
 C:\Users\Abel\Documents\GitHub\Dual_Sellares_Abel\Sprint2_M20\Sprint2_M20\obj\Debug\Sprint2_M20.pdb
 C:\Users\Abel\Documents\GitHub\Dual_Sellares_Abel\Sprint2_M20\Sprint2_M20\obj\Debug\Sprint2_M20.TrustedDevices.resources
 C:\Users\Abel\Documents\GitHub\Dual_Sellares_Abel\Sprint2_M20\Sprint2_M20\obj\Debug\Sprint2_M20.TrustedUsers.resources
+C:\Users\Abel\Documents\GitHub\Dual_Sellares_Abel\Sprint2_M20\Sprint2_M20\obj\Debug\Sprint2_M20.csproj.AssemblyReference.cache
+C:\Users\Abel\Documents\GitHub\Dual_Sellares_Abel\Sprint2_M20\Sprint2_M20\obj\Debug\Sprint2_M20.csproj.CopyComplete
