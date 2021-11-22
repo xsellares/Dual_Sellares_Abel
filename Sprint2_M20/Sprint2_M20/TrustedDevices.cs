@@ -24,11 +24,6 @@ namespace Sprint2_M20
         string tabla = "TrustedDevices";
         DataSet dts;
 
-        private void txtMAC_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void TrustedDevices_Load(object sender, EventArgs e)
         {
 
@@ -90,26 +85,16 @@ namespace Sprint2_M20
 
             dts.Tables["TrustedDevices"].Rows.Add(drDevices);
 
-            dts = bd.Actualizar("select * from TrustedDevices");
+            string query = "select * from TrustedDevices where 1=2";
+
+            int result  = bd.Actualizar(query, dts);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            dts = bd.TraerDatos(tabla, "select hostname, MAC from TrustedDevices where HostName = '" + txtHostname.Text + "' and MAC = '" + txtMAC.Text + "'");
-            DataTable dtDevices = dts.Tables["TrustedDevices"];
-
-            for (int i = dtDevices.Rows.Count -1; i >= 0; i--)
-            {
-                DataRow drDevices = dtDevices.Rows[i];
-                if (drDevices["MAC"].ToString() == txtMAC.Text && drDevices["HostName"].ToString() == txtHostname.Text) 
-    {
-                    dtDevices.Rows.Remove(drDevices);
-                }
-            }
-
-            dtDevices.AcceptChanges();
-
-            dts = bd.Actualizar("select * from TrustedDevices");
+            string query = "delete from TrustedDevices where HostName = '" + txtHostname.Text + "' and MAC = '" + txtMAC.Text + "'";
+           
+            int result = bd.Executar(query);
 
         }
     }

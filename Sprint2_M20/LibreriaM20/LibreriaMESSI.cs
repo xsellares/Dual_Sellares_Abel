@@ -13,7 +13,6 @@ namespace LibreriaM20
     public class LibreriaMESSI
     {
         private SqlConnection conn;
-        private string query;
         private DataSet dts;
 
         public void ConfigurarConexion()
@@ -42,9 +41,21 @@ namespace LibreriaM20
 
         }
 
-        public DataSet Actualizar(string query)
+        public int Executar(string query)
         {
+            conn.Open();
 
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            int registresAfectats = cmd.ExecuteNonQuery();
+            conn.Close();
+            cmd.Dispose();
+            return registresAfectats;
+        }
+
+        public int Actualizar(string query, DataSet dts)
+        {
+            int result = 0;
             conn.Open();
 
             SqlDataAdapter adapter;
@@ -52,24 +63,18 @@ namespace LibreriaM20
             SqlCommandBuilder cmdBuilder;
             cmdBuilder = new SqlCommandBuilder(adapter);
 
-            
-            int result = adapter.Update(dts.Tables[0]);
+
+            if (dts.HasChanges())
+            {
+                result = adapter.Update(dts.Tables[0]);
+            }
 
             conn.Close();
 
-            return dts;
+            return result;
 
         }
 
-        public void HacerBindings()
-        {
-            //DataBindings.Clear();
-            //txtCodigo.DataBindings.Add("text", dts.Tables["Agencies"], "CodeAgency");
-            //txtCodigo.Validated += new System.EventHandler(this.ValidarTextBox);
-            //txtDesc.DataBindings.Clear();
-            //txtDesc.DataBindings.Add("text", dts.Tables["Agencies"], "DescAgency");
-            //txtDesc.Validated += new System.EventHandler(this.ValidarTextBox);
-        }
     }
 
     

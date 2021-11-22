@@ -62,7 +62,6 @@ namespace Sprint2_M20
             this.txtMAC.Name = "txtMAC";
             this.txtMAC.Size = new System.Drawing.Size(201, 22);
             this.txtMAC.TabIndex = 2;
-            this.txtMAC.TextChanged += new System.EventHandler(this.txtMAC_TextChanged);
             // 
             // txtHostname
             // 
