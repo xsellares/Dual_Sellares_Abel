@@ -32,7 +32,7 @@ namespace Sprint2_M20
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtHostname = new System.Windows.Forms.TextBox();
             this.txtMAC = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbUsers = new System.Windows.Forms.ComboBox();
             this.btnUser = new System.Windows.Forms.Label();
             this.btnHostname = new System.Windows.Forms.Label();
             this.btnMac = new System.Windows.Forms.Label();
@@ -46,7 +46,7 @@ namespace Sprint2_M20
             // 
             this.panel1.Controls.Add(this.txtHostname);
             this.panel1.Controls.Add(this.txtMAC);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.cmbUsers);
             this.panel1.Controls.Add(this.btnUser);
             this.panel1.Controls.Add(this.btnHostname);
             this.panel1.Controls.Add(this.btnMac);
@@ -71,16 +71,16 @@ namespace Sprint2_M20
             this.txtMAC.Size = new System.Drawing.Size(166, 22);
             this.txtMAC.TabIndex = 4;
             // 
-            // comboBox1
+            // cmbUsers
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cmbUsers.FormattingEnabled = true;
+            this.cmbUsers.Items.AddRange(new object[] {
             "Abel",
             "Xavi"});
-            this.comboBox1.Location = new System.Drawing.Point(415, 48);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(146, 24);
-            this.comboBox1.TabIndex = 3;
+            this.cmbUsers.Location = new System.Drawing.Point(415, 48);
+            this.cmbUsers.Name = "cmbUsers";
+            this.cmbUsers.Size = new System.Drawing.Size(146, 24);
+            this.cmbUsers.TabIndex = 3;
             // 
             // btnUser
             // 
@@ -160,7 +160,7 @@ namespace Sprint2_M20
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtHostname;
         private System.Windows.Forms.TextBox txtMAC;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbUsers;
         private System.Windows.Forms.Label btnUser;
         private System.Windows.Forms.Label btnHostname;
         private System.Windows.Forms.Label btnMac;

@@ -21,6 +21,8 @@ namespace Sprint2_M20
             InitializeComponent();
         }
 
+        LibreriaM20.LibreriaMESSI bd = new LibreriaM20.LibreriaMESSI();
+        DataSet dts;
 
         private void TrustedUsers_Load(object sender, EventArgs e)
         {
@@ -50,26 +52,30 @@ namespace Sprint2_M20
 
             String hostName = Dns.GetHostName();
             txtHostname.Text = hostName;
+
+            dts = bd.TraerDatos("TrustedDevices", "select hostname, MAC from TrustedDevices where HostName = '" + hostName + "' and MAC = '" + txtMAC.Text + "'");
+            DataTable dtDevices = dts.Tables[0];
+
+            if (dtDevices.Rows.Count == 0)
+            {
+                MessageBox.Show("Tu dipositivo no está registrado");
+                this.Close();
+
+            }
+            else
+            {
+                MessageBox.Show("Tu dispositivo ya está registrado");
+
+            }
+
+
         }
 
-        static void ReadSetting(string key)
+        private void bntRegister_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var appSettings = ConfigurationManager.AppSettings;
-                string result = appSettings[key] ?? "Not Found";
-                Console.WriteLine(result);
-            }
-            catch (ConfigurationErrorsException)
-            {
-                Console.WriteLine("Error reading app settings");
-            }
-        }
+            string key = "TrustedUsers";
+            string value = cmbUsers.Text;
 
-        static void AddUpdateAppSettings(string key, string value)
-        {
-            try
-            {
                 var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 var settings = configFile.AppSettings.Settings;
                 if (settings[key] == null)
@@ -82,32 +88,8 @@ namespace Sprint2_M20
                 }
                 configFile.Save(ConfigurationSaveMode.Modified);
                 ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
-            }
-            catch (ConfigurationErrorsException)
-            {
-                Console.WriteLine("Error writing app settings");
-            }
-        }
-
-
-
-        private void bntRegister_Click(object sender, EventArgs e)
-        {
-            string key = "TrustedUser";
-            string value = comboBox1.Text.Trim();
-
-            var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                var settings = configFile.AppSettings.Settings;
-            if (settings[key] == null)
-            {
-                settings.Add(key, value);
-            }
-            else
-            {
-                settings[key].Value = value;
-            }
-            configFile.Save(ConfigurationSaveMode.Modified);
-            ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
-            }
+            
         }
     }
+
+}
