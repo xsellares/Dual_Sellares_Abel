@@ -95,7 +95,6 @@ namespace Sprint2_M20
             string query = "delete from TrustedDevices where HostName = '" + txtHostname.Text + "' and MAC = '" + txtMAC.Text + "'";
            
             int result = bd.Executar(query);
-
         }
     }
 }
