@@ -23,6 +23,11 @@ namespace Sprint2_M20
         }
 
         string MAC;
+        string hostname;
+        string dbusername;
+        string dbpassword;
+        string iduser;
+        string iddevice;
         LibreriaM20.LibreriaMESSI bd = new LibreriaM20.LibreriaMESSI();
         DataSet dts;
         int contador = 0;
@@ -34,7 +39,7 @@ namespace Sprint2_M20
                 if (contador == 3)
                 {
                     MessageBox.Show("Tindràs represàlies per part de la Primera Ordre");
-                    this.Close();
+                    Application.Exit();
                     FileStream fitxer = new FileStream("log_error.log", FileMode.Append, FileAccess.Write);
                     DateTimeOffset thisDate2 = new DateTimeOffset(DateTime.Now);
                     StreamWriter escriptor = new StreamWriter(fitxer);
@@ -43,12 +48,41 @@ namespace Sprint2_M20
                     escriptor.Close();
                 }
 
-                if (txtUser.Text == "Abel" && txtPass.Text == "12345")
+                dts = bd.TraerDatos("Users","Select * from Users where codeUser = '" + txtUser.Text + "' and password = '" + txtPass.Text + "';");
+                DataTable dtlogin = dts.Tables[0];
+
+                if (dtlogin.Rows.Count == 1)
                 {
-                    this.Hide();
-                    PantallaInicio frmPantallaInicio = new PantallaInicio();
-                    frmPantallaInicio.ShowDialog();
+                    DataRow drlogin = dtlogin.Rows[0];
+
+                    iduser = drlogin["idUser"].ToString();
+                    dbusername = drlogin["codeuser"].ToString();
+                    dbpassword = drlogin["password"].ToString();
+
+
+                if (dbusername == txtUser.Text && dbpassword == txtPass.Text)
+                {
+                    dts = bd.TraerDatos("TrustedDevices", "Select * from TrustedDevices where MAC = '" + MAC + "' and hostname = '" + hostname + "';");
+                    DataTable dtdevices = dts.Tables[0];
+                    DataRow drdevices = dtdevices.Rows[0];
+
+                    iddevice = drdevices["idDevice"].ToString();
+
+                    if (dtdevices.Rows.Count == 1)
+                    {
+                        dts = bd.TraerDatos("MessiUsers", "Select idUser, idDevice from MessiUsers where idUser =" + iduser + "and idDevice =" + iddevice + ";");
+                        DataTable dtmessi = dts.Tables[0];
+
+                        if (dtmessi.Rows.Count == 1)
+                        {
+                            this.Hide();
+                            PantallaInicio frmPantallainicio = new PantallaInicio();
+                            frmPantallainicio.ShowDialog();
+                        }
+                        
+                    }
                 }
+            }
         }
 
         private void LoginNormal_Load(object sender, EventArgs e)
@@ -67,24 +101,18 @@ namespace Sprint2_M20
                     for (int i = 0; i < bytes.Length; i++)
                     {
                         // Convierte la direccion en hexadeximal
-                        MAC = String.Format("{0}", bytes[i].ToString("X2"));
+                        MAC += String.Format("{0}", bytes[i].ToString("X2")).ToString();
                         // Inserta un guion entre cada byte
                         if (i != bytes.Length - 1)
                         {
-                            address += "-";
+                            MAC += "-".ToString();
                         }
                     }
                 }
             }
 
-            Dns.GetHostName();
+            hostname = Dns.GetHostName();
 
-
-            dts = bd.TraerDatos("Users", "Select codeUser, password from Users;");
-            DataTable dtUsers = dts.Tables[0];
-
-            dts = bd.TraerDatos("Users", "Select codeUser, password from Users;");
-            DataTable dtDevices = dts.Tables[0];
         }
     }
 }
