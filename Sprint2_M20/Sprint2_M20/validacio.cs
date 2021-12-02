@@ -19,6 +19,10 @@ namespace Sprint2_M20
         }
 
         string numeros;
+        LibreriaM20.LibreriaMESSI bd = new LibreriaM20.LibreriaMESSI();
+        DataSet dts;
+        string coordenadaText;
+        string valorText;
 
         //Crear el diccionario con la llave y el valor asignado
         Dictionary<string, string> codiDiccionari = new Dictionary<string, string>();
@@ -55,26 +59,29 @@ namespace Sprint2_M20
             }
 
 
-            Random rng = new Random();  //Generar random fuera del bucle para que no se repitan patrones
-            for (char y = 'A'; y <= 'D'; y++)   //Doble bucle para generar una tabla con coordenadas y codigos.
-            {
-                for (int z = 1; z < 6; z++)
-                {
-                    int num = rng.Next((9000) + 1000);  //Random del 0 al 9999
-                    string codi = y.ToString() + z; //Variable para la coordenada y el codigo
-                    codiDiccionari.Add(codi, num.ToString().PadLeft(4, '0'));   //Añade 0 a la izquierda al codigo
-                }
+            //Random rng = new Random();  //Generar random fuera del bucle para que no se repitan patrones
+            //for (char y = 'A'; y <= 'D'; y++)   //Doble bucle para generar una tabla con coordenadas y codigos.
+            //{
+            //    for (int z = 1; z < 6; z++)
+            //    {
+            //        int num = rng.Next((9000) + 1000);  //Random del 0 al 9999
+            //        string codi = y.ToString() + z; //Variable para la coordenada y el codigo
+            //        codiDiccionari.Add(codi, num.ToString().PadLeft(4, '0'));   //Añade 0 a la izquierda al codigo
+            //    }
 
-            }
+            //}
 
             Random random = new Random();
             int numCodi = random.Next(19);
 
-            string key = codiDiccionari.ElementAt(numCodi).Key;
-            lblCoordenada.Text = key;
+            dts = bd.TraerDatos("AdminCoordinates","Select Coordinate, ValueCoord from AdminCoordinates");
+            DataTable dtCoord = dts.Tables[0];
+            DataRow drCoord = dtCoord.Rows[numCodi];
 
-            numeros = codiDiccionari.ElementAt(numCodi).Value;
+            coordenadaText = drCoord[0].ToString();
+            valorText = drCoord[1].ToString();
 
+            lblCoordenada.Text = coordenadaText;
         }
             
 
@@ -91,7 +98,10 @@ namespace Sprint2_M20
 
         private void button1_Click(object sender, EventArgs e)
         {
-             if (txtPassAdmin.Text == "1111")
+            dts = bd.TraerDatos("AdminCoordinates", "Select Coordinate, ValueCoord from AdminCoordinates");
+            DataTable dtCoord = dts.Tables[0];
+
+            if (txtPassAdmin.Text == valorText)
             {
                 this.Hide();
                 FormAdmin frmAdmin = new FormAdmin();
