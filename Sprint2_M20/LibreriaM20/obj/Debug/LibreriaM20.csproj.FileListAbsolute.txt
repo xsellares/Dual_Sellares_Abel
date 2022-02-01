@@ -3,3 +3,4 @@ C:\Users\Abel\Documents\GitHub\Dual_Sellares_Abel\Sprint2_M20\LibreriaM20\bin\De
 C:\Users\Abel\Documents\GitHub\Dual_Sellares_Abel\Sprint2_M20\LibreriaM20\obj\Debug\LibreriaM20.csproj.CoreCompileInputs.cache
 C:\Users\Abel\Documents\GitHub\Dual_Sellares_Abel\Sprint2_M20\LibreriaM20\obj\Debug\LibreriaM20.dll
 C:\Users\Abel\Documents\GitHub\Dual_Sellares_Abel\Sprint2_M20\LibreriaM20\obj\Debug\LibreriaM20.pdb
+C:\Users\Abel\Documents\GitHub\Dual_Sellares_Abel\Sprint2_M20\LibreriaM20\obj\Debug\LibreriaM20.csproj.AssemblyReference.cache
